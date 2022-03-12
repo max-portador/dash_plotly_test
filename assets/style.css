@@ -1,5 +1,7 @@
 body {
-font-family: "Times New Roman"
+    font-family: "Times New Roman";
+    background-color: #D6D8D8;
+    padding: 20px
 }
 
 .select_box {
@@ -20,10 +22,9 @@ font-family: "Times New Roman"
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: space-between;
 }
 
-#SELECTED_PRODUCTS {x
+#SELECTED_PRODUCTS {
      display: grid;
      width: 50%;
 }
@@ -33,6 +34,20 @@ font-family: "Times New Roman"
      justify-self: end;
      width: 50%;
 }
+
+.main{
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+}
+
+.barcharts {
+    display: grid;
+}
+
+.main_right{
+    display: grid;
+}
+
 
 .Select-placeholder{
     color: black;
