@@ -1,12 +1,20 @@
+import random
+
 import pandas as pd
 import plotly.graph_objs as go
 import dash
+import calendar
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
 
 from components.Figures.averageBarchart import averageScoreFig
+from components.Figures.horizontalBarChart import horizontalBarChart
 from components.Figures.stackBarchart import stackBarchartFig
+from components.Figures.wordCloudChart import wordCloudChart
+from components.Main.mainContainer import mainContainer
+from constants import SELECTED_YEARS, SELECTED_USERS, SELECTED_PRODUCTS, BARS_GROUPED, BARS, HORIZONTAL_BARS, WORDLIST, \
+    WORDCLOUD
 from helpers import apply_filter
 from components.header import get_header
 
@@ -20,46 +28,22 @@ unique_products = sorted(df_original['product'].unique())
 unique_users = sorted(df_original['user'].unique())
 unique_years = sorted(df_original['year'].unique())
 
-SELECTED_PRODUCTS = 'SELECTED_PRODUCTS'
-SELECTED_USERS = 'SELECTED_USERS'
-SELECTED_YEARS = 'SELECTED_YEARS'
-OUTPUT_CONTAINER = 'OUTPUT_CONTAINER'
-BARS = 'BARS'
-BARS_GROUPED = 'BARS_GROUPED'
 
+epithets = df_original.score.apply(lambda x: random.choice(WORDLIST))
+df_original['epithets'] = epithets
 # ---------------------------------------
 app.layout = html.Div(className='wrapper', children=[
-    get_header([SELECTED_PRODUCTS, SELECTED_USERS], [unique_products, unique_users]),
-    html.Div(className='main', children=[
-        html.Div(className="barcharts", children=[
-        dcc.Dropdown(id=SELECTED_YEARS,
-                     options=[
-                         {'label': str(year), 'value': year} for year in unique_years
-                     ],
-                     multi=True,
-                     value=[],
-                     placeholder="All",
-                     style={'width': '40%'},
-                     ),
-
-        dcc.Graph(id=BARS,
-                  figure={},
-                  config={"displayModeBar": False}),
-
-        dcc.Graph(id=BARS_GROUPED,
-                  figure={},
-                  config={"displayModeBar": False})
-    ]),
-    html.Div(className='main_right')])
-
-
+    get_header([unique_products, unique_users]),
+    mainContainer(unique_years),
 ])
 
 
 # Connect the Plotly graphs with DashComponents
 @app.callback(
     [Output(component_id=BARS, component_property='figure'),
-     Output(component_id=BARS_GROUPED, component_property='figure')],
+     Output(component_id=BARS_GROUPED, component_property='figure'),
+     Output(component_id=HORIZONTAL_BARS, component_property='figure'),
+     Output(component_id=WORDCLOUD, component_property='src')],
     [Input(component_id=SELECTED_PRODUCTS, component_property='value'),
      Input(component_id=SELECTED_USERS, component_property='value'),
      Input(component_id=SELECTED_YEARS, component_property='value')]
@@ -73,8 +57,10 @@ def update_graph(products_selected, users_selected, years_selected):
 
     fig1 = averageScoreFig(dff)
     fig2 = stackBarchartFig(dff)
+    fig3 = horizontalBarChart(dff)
+    bytes = wordCloudChart(dff)
 
-    return fig1, fig2
+    return fig1, fig2, fig3, bytes
 
 
 if __name__ == '__main__':

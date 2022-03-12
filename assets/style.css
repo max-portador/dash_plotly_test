@@ -1,7 +1,13 @@
+html{
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+}
+
 body {
     font-family: "Times New Roman";
     background-color: #D6D8D8;
-    padding: 20px
+    padding: 0 20px;
 }
 
 .select_box {
@@ -38,15 +44,28 @@ body {
 .main{
     display: grid;
     grid-template-columns: 6fr 4fr;
+    grid-column-gap: 10px;
 }
 
 .barcharts {
     display: grid;
+    grid-row-gap: 10px;
 }
 
 .main_right{
     display: grid;
+    grid-template-rows: 5fr 7fr;
+    grid-row-gap: 10px;
 }
+
+#HORIZONTAL_BARS {
+    display: grid;
+}
+#WORDCLOUD {
+    display: grid;
+    width: 100%;
+}
+
 
 
 .Select-placeholder{

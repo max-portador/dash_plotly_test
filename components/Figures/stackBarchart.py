@@ -1,7 +1,6 @@
 import plotly.graph_objs as go
 import pandas as pd
 import calendar
-import math
 
 
 def stackBarchartFig(df):
@@ -16,19 +15,19 @@ def stackBarchartFig(df):
 
     fig = go.Figure()
 
-
     for col, color in zip(unique_scores, color_scheme):
         fig.add_trace(go.Bar(x=month_name, y=df_count[col], marker_color=color,
-                              textfont={"family": "Times New Roman", "size": 18},
-                              showlegend=True, hoverinfo='y', name=col))
+                             textfont={"family": "Times New Roman", "size": 18},
+                             showlegend=True, hoverinfo='y', name=col))
+
     fig.update_layout(autosize=True,
-                       barmode='stack',
-                       dragmode=False,
-                       plot_bgcolor='white',
-                       bargap=0.5,
-                       xaxis=dict(showgrid=False),
-                       yaxis=dict(range=[0, maximal + 1], showgrid=False),
-                       margin=dict(l=5, r=5, t=15, b=5))
+                      barmode='stack',
+                      dragmode=False,
+                      plot_bgcolor='white',
+                      bargap=0.5,
+                      xaxis=dict(showgrid=False),
+                      yaxis=dict(range=[0, maximal + 1], showgrid=False),
+                      margin=dict(l=5, r=5, t=15, b=5))
 
     fig.update_layout(legend=dict(
         orientation="h",
@@ -37,6 +36,5 @@ def stackBarchartFig(df):
         x=0,
         y=1.1,
     ))
-
 
     return fig
