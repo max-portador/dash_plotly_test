@@ -1,0 +1,52 @@
+body {
+font-family: "Times New Roman"
+}
+
+.select_box {
+    color: black !important;
+    width: 268px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    -webkit-appearance: none;
+}
+
+.wrapper {
+    display: grid;
+ }
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: space-between;
+}
+
+#SELECTED_PRODUCTS {x
+     display: grid;
+     width: 50%;
+}
+
+#SELECTED_USERS {
+     display: grid;
+     justify-self: end;
+     width: 50%;
+}
+
+.Select-placeholder{
+    color: black;
+}
+.Select--multi .Select-value{
+    border:1px solid rgba(0,0,0,.24);;
+}
+
+.Select-value-label, .Select-value-icon {
+    background-color: white; !important;
+    color: black;
+
+}
+
+.Select--multi .Select-value-icon {
+    border-right: 1px solid rgba(0,0,0,.24);
+}
