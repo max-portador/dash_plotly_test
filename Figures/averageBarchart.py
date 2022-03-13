@@ -18,7 +18,7 @@ def averageScoreFig(df):
 
     # добавляем горизотальные линии
     for y in range(1, maximal + 1):
-        fig.add_hline(y=y, line_width=1, line_dash='dot', line_color='gray')
+        fig.add_hline(y=y, line_width=1, line_dash='dot', line_color='gray', layer='below')
 
     fig.add_trace(go.Bar(x=month_name, y=score, text=score,
                          textposition='outside', marker_color=color_scheme,
@@ -31,7 +31,7 @@ def averageScoreFig(df):
                       plot_bgcolor='white',
                       bargap=0.5,
                       xaxis=dict(showgrid=False),
-                      yaxis=dict(nticks=maximal + 1, showgrid=True),
+                      yaxis=dict(range=[0, maximal + 0.5], showgrid=True),
                       margin=dict(l=5, r=5, t=5, b=5))
 
     return fig

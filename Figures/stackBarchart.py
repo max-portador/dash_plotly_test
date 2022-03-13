@@ -11,9 +11,14 @@ def stackBarchartFig(df):
     color_scheme = ['#F6A198', '#D6D8D8', '#CCD9E5', '#90A1B6', '#ABDDC3']
 
     # находим максимальную сумму оценок в месяц
-    maximal = max(df_count.sum(axis=1).tolist())
+    maximal = int(max(df_count.sum(axis=1).tolist()))
+    step = 10 if maximal >= 40 else 5 if maximal >= 10 else 2
 
     fig = go.Figure()
+
+    # добавляем горизотальные линии
+    for y in range(step, maximal + 1, step):
+        fig.add_hline(y=y, line_width=1, line_dash='dot', line_color='lightgray', layer='below')
 
     for col, color in zip(unique_scores, color_scheme):
         fig.add_trace(go.Bar(x=month_name, y=df_count[col], marker_color=color,

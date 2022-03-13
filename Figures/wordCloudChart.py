@@ -4,7 +4,7 @@ from io import BytesIO
 import base64
 import random
 
-# pip install -U --force-reinstall pip
+
 
 def wordCloudChart(df):
     # делаем масску

@@ -25,6 +25,11 @@
 .reviews{
     padding: 10px 5px;
 }
+
+.wordcloud{
+    padding: 10px 5px;
+    height: min-content;
+}
 .barChartsWithSelector{
     display: grid;
     grid-template-rows: auto auto;

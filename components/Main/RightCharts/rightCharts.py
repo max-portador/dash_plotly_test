@@ -11,6 +11,6 @@ def rightCharts():
 
     children = [
         componentWrapper(horizontal_bars, 'Number of Reviews', ['reviews']),
-        componentWrapper(html.Img(id=WORDCLOUD), 'Summary', ['reviews'])
+        componentWrapper(html.Img(id=WORDCLOUD), 'Summary', ['wordcloud'])
     ]
     return html.Div(className='main_right', children=children)

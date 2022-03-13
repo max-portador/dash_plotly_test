@@ -67,9 +67,9 @@ def update_graph(products_selected, users_selected, years_selected):
     fig2 = stackBarchartFig(df)
     fig3 = horizontalBarChart(df)
     fig4 = bulletChartFig(df)
-    bytes = wordCloudChart(df)
+    img_like_bytes = wordCloudChart(df)
 
-    return fig1, fig2, fig3, fig4, bytes
+    return fig1, fig2, fig3, fig4, img_like_bytes
 
 
 if __name__ == '__main__':
