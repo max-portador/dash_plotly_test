@@ -6,8 +6,7 @@ from constants import HORIZONTAL_BARS, WORDCLOUD
 
 
 def rightCharts():
-    horizontal_bars = dcc.Graph(id=HORIZONTAL_BARS,
-                  figure={},
+    horizontal_bars = dcc.Graph(id=HORIZONTAL_BARS, figure={},
                   config={"displayModeBar": False})
 
     children = [

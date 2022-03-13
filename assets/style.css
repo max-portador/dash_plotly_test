@@ -18,14 +18,45 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 80px;
-    margin-bottom: 20px;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: 7fr 5fr ;
+    margin: 20px 0;
+}
+
+.info_bigTitle{
+    display: grid;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.info_right{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 20px;
+}
+
+.info_right_title{
+    display: grid;
+    background-color: #dcdcdc;
+    font-family: sans-serif, serif;
+    width: fit-content;
+    align-self: center;
+    justify-items: center;
+    padding: 0 10px;
+    line-height:30px;
+    font-size: 16px;
+    border-radius: 2px;
 }
 
 .main {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 20px;
-    height: calc(100vh - 80px - 30px);
+    height: calc(100vh - 80px - 70px);
 }
 
 .barcharts {
@@ -43,7 +74,6 @@ body {
 
 #SELECTED_PRODUCTS {
     display: grid;
-    margin: -10px;
 }
 
 #SELECTED_USERS {

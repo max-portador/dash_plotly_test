@@ -8,11 +8,12 @@ from components.Figures.averageBarchart import averageScoreFig
 from components.Figures.horizontalBarChart import horizontalBarChart
 from components.Figures.stackBarchart import stackBarchartFig
 from components.Figures.wordCloudChart import wordCloudChart
+from components.Info.info import info
 from components.Main.mainContainer import mainContainer
 from constants import SELECTED_YEARS, SELECTED_USERS, SELECTED_PRODUCTS, BARS_GROUPED, BARS, HORIZONTAL_BARS, WORDLIST, \
     WORDCLOUD
 from helpers import apply_filter
-from components.header import header
+from components.Header.header import header
 
 app = dash.Dash(__name__)
 # set css-file for our app
@@ -36,6 +37,7 @@ df_original['epithets'] = epithets
 # set our html-markup
 app.layout = html.Div(className='wrapper', children=[
     header(unique_products, unique_users),
+    info(),
     mainContainer(unique_years),
 ])
 

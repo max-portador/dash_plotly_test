@@ -1,12 +1,11 @@
 SELECTED_PRODUCTS = 'SELECTED_PRODUCTS'
 SELECTED_USERS = 'SELECTED_USERS'
 SELECTED_YEARS = 'SELECTED_YEARS'
-OUTPUT_CONTAINER = 'OUTPUT_CONTAINER'
+BULLET_CHART = 'BULLET_CHART'
 BARS = 'BARS'
 BARS_GROUPED = 'BARS_GROUPED'
 HORIZONTAL_BARS = 'HORIZONTAL_BARS'
 WORDCLOUD = 'WORDCLOUD'
-
 WORDLIST = ['brand', 'yield', 'launch', 'model', 'market', 'fruit', 'spawn', 'thought', 'distillate', 'progeny',
             'offspring', 'factor', 'marque', 'manufacture', 'GDP', 'by-product', 'laminate', 'fruitage', 'hydrolysate',
             'generic', 'produce', 'demo', 'spin-off', 'condensate', 'export', 'sublimate',
