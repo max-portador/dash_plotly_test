@@ -22,19 +22,28 @@ def stackBarchartFig(df):
 
     fig.update_layout(autosize=True,
                       barmode='stack',
+                      font_family="Times New Roman",
                       dragmode=False,
                       plot_bgcolor='white',
                       bargap=0.5,
                       xaxis=dict(showgrid=False),
                       yaxis=dict(range=[0, maximal + 1], showgrid=False),
-                      margin=dict(l=5, r=5, t=15, b=5))
+                      margin=dict(l=0, r=0, t=15, b=5))
 
     fig.update_layout(legend=dict(
         orientation="h",
         yanchor="top",
         xanchor="left",
-        x=0,
-        y=1.1,
+        x=-0,
+        y=1.2,
+        title='Score',
+        traceorder='normal',
+        title_font_family="Times New Roman",
+        font=dict(
+            family="Times New Roman",
+            size=12,
+            color="black",
+        ),
     ))
 
     return fig

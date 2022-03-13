@@ -1,86 +1,78 @@
-html{
+html {
     margin: 0;
     padding: 0;
-    height: 80vh;
 }
 
 body {
-    font-family: "Times New Roman";
-    background-color: #D6D8D8;
+    font-family: "Times New Roman", system-ui;
+    background-color: #ececec;
     padding: 0 20px;
-}
-
-.select_box {
-    color: black !important;
-    width: 268px;
-    font-size: 16px;
-    line-height: 1;
-    border: 0;
-    border-radius: 5px;
-    height: 34px;
-    -webkit-appearance: none;
+    margin: 0;
 }
 
 .wrapper {
     display: grid;
- }
+}
 
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    height: 80px;
+    margin-bottom: 20px;
 }
 
-#SELECTED_PRODUCTS {
-     display: grid;
-     width: 50%;
-}
-
-#SELECTED_USERS {
-     display: grid;
-     justify-self: end;
-     width: 50%;
-}
-
-.main{
+.main {
     display: grid;
-    grid-template-columns: 6fr 4fr;
-    grid-column-gap: 10px;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 20px;
+    height: calc(100vh - 80px - 30px);
 }
 
 .barcharts {
     display: grid;
-    grid-row-gap: 10px;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 20px;
 }
 
-.main_right{
+.main_right {
     display: grid;
     grid-template-rows: 5fr 7fr;
-    grid-row-gap: 10px;
+    grid-row-gap: 20px;
+}
+
+
+#SELECTED_PRODUCTS {
+    display: grid;
+    margin: -10px;
+}
+
+#SELECTED_USERS {
+    display: grid;
+}
+
+#SELECTED_YEARS {
+    display: grid;
+    justify-self: end;
+    min-width: 50px;
 }
 
 #HORIZONTAL_BARS {
     display: grid;
 }
+
 #WORDCLOUD {
     display: grid;
-    width: 100%;
+    align-self: start;
+    justify-self: center;
 }
 
 
-
-.Select-placeholder{
-    color: black;
-}
-.Select--multi .Select-value{
-    border:1px solid rgba(0,0,0,.24);;
+text.legendtitletext {
+    font-weight: bold;
 }
 
-.Select-value-label, .Select-value-icon {
-    background-color: white; !important;
-    color: black;
+/*.cartesianlayer{*/
+/*    font-weight: bold;*/
+/*    font-family: "Times New Roman", system-ui;*/
+/*}*/
 
-}
-
-.Select--multi .Select-value-icon {
-    border-right: 1px solid rgba(0,0,0,.24);
-}

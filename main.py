@@ -1,12 +1,8 @@
-import random
-
 import pandas as pd
-import plotly.graph_objs as go
 import dash
-import calendar
-from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
+import random
 
 from components.Figures.averageBarchart import averageScoreFig
 from components.Figures.horizontalBarChart import horizontalBarChart
@@ -16,10 +12,13 @@ from components.Main.mainContainer import mainContainer
 from constants import SELECTED_YEARS, SELECTED_USERS, SELECTED_PRODUCTS, BARS_GROUPED, BARS, HORIZONTAL_BARS, WORDLIST, \
     WORDCLOUD
 from helpers import apply_filter
-from components.header import get_header
+from components.header import header
 
 app = dash.Dash(__name__)
+# set css-file for our app
 app.head = [html.Link(rel='stylesheet', href='./static/style.css')]
+app.head = [html.Link(rel='stylesheet', href='./static/dropdown_redifine.css')]
+app.head = [html.Link(rel='stylesheet', href='./static/component_wrapper_style.css')]
 
 # Import data
 df_original = pd.read_csv("./user_product_data.csv")
@@ -28,12 +27,15 @@ unique_products = sorted(df_original['product'].unique())
 unique_users = sorted(df_original['user'].unique())
 unique_years = sorted(df_original['year'].unique())
 
-
+# Create epithets for each line in dataframe
 epithets = df_original.score.apply(lambda x: random.choice(WORDLIST))
 df_original['epithets'] = epithets
+
 # ---------------------------------------
+
+# set our html-markup
 app.layout = html.Div(className='wrapper', children=[
-    get_header([unique_products, unique_users]),
+    header(unique_products, unique_users),
     mainContainer(unique_years),
 ])
 
@@ -49,16 +51,18 @@ app.layout = html.Div(className='wrapper', children=[
      Input(component_id=SELECTED_YEARS, component_property='value')]
 )
 def update_graph(products_selected, users_selected, years_selected):
-    dff = df_original.copy()
+    df = df_original.copy()
 
-    dff = apply_filter(dff, products_selected, 'product')
-    dff = apply_filter(dff, users_selected, 'user')
-    dff = apply_filter(dff, years_selected, 'year')
+    # filter our dataframe
+    df = apply_filter(df, products_selected, 'product')
+    df = apply_filter(df, users_selected, 'user')
+    df = apply_filter(df, years_selected, 'year')
 
-    fig1 = averageScoreFig(dff)
-    fig2 = stackBarchartFig(dff)
-    fig3 = horizontalBarChart(dff)
-    bytes = wordCloudChart(dff)
+    # get content for our dash-components
+    fig1 = averageScoreFig(df)
+    fig2 = stackBarchartFig(df)
+    fig3 = horizontalBarChart(df)
+    bytes = wordCloudChart(df)
 
     return fig1, fig2, fig3, bytes
 

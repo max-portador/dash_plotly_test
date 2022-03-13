@@ -1,0 +1,32 @@
+.component_wrapper{
+    display: grid;
+    grid-template-rows: auto auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    grid-row-gap: 5px;
+}
+
+.component_wrapper_users{
+    justify-self: end;
+}
+
+.component_wrapper_span{
+    display: grid;
+    justify-self: start;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dropdown{
+    width: 80%
+}
+
+.reviews{
+    padding: 10px 5px;
+}
+.barChartsWithSelector{
+    display: grid;
+    grid-template-rows: auto auto;
+    margin-top: -30px;
+}

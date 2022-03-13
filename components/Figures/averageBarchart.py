@@ -26,6 +26,7 @@ def averageScoreFig(df):
 
     fig.update_layout(autosize=True,
                        dragmode=False,
+                       font_family="Times New Roman",
                        plot_bgcolor='white',
                        bargap=0.5,
                        xaxis=dict(showgrid=False),
