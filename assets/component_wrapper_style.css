@@ -19,7 +19,7 @@
 }
 
 .dropdown{
-    width: 80%
+    width: max-content  ;
 }
 
 .reviews{

@@ -17,13 +17,13 @@ def header(unique_products, unique_users):
                                      value=[])
 
     users_selector = dcc.Dropdown(id=SELECTED_USERS,
-                                     className='select_box',
-                                     options=[
-                                         {'label': str(uv), 'value': uv} for uv in unique_users
-                                     ],
-                                     multi=True,
-                                     placeholder="All",
-                                     value=[])
+                                  className='select_box',
+                                  options=[
+                                      {'label': str(uv), 'value': uv} for uv in unique_users
+                                  ],
+                                  multi=True,
+                                  placeholder="All",
+                                  value=[])
 
     children.append(componentWrapper(products_selector, "Products", ['dropdown']))
     children.append(componentWrapper(users_selector, "User", ['component_wrapper_users', 'dropdown']))

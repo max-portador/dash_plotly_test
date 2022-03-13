@@ -4,14 +4,15 @@ from dash import html
 from dash.dependencies import Input, Output
 import random
 
-from components.Figures.averageBarchart import averageScoreFig
-from components.Figures.horizontalBarChart import horizontalBarChart
-from components.Figures.stackBarchart import stackBarchartFig
-from components.Figures.wordCloudChart import wordCloudChart
+from Figures.averageBarchart import averageScoreFig
+from Figures.bulletChart import bulletChartFig
+from Figures.horizontalBarChart import horizontalBarChart
+from Figures.stackBarchart import stackBarchartFig
+from Figures.wordCloudChart import wordCloudChart
 from components.Info.info import info
 from components.Main.mainContainer import mainContainer
 from constants import SELECTED_YEARS, SELECTED_USERS, SELECTED_PRODUCTS, BARS_GROUPED, BARS, HORIZONTAL_BARS, WORDLIST, \
-    WORDCLOUD
+    WORDCLOUD, BULLET_CHART
 from helpers import apply_filter
 from components.Header.header import header
 
@@ -47,6 +48,7 @@ app.layout = html.Div(className='wrapper', children=[
     [Output(component_id=BARS, component_property='figure'),
      Output(component_id=BARS_GROUPED, component_property='figure'),
      Output(component_id=HORIZONTAL_BARS, component_property='figure'),
+     Output(component_id=BULLET_CHART, component_property='figure'),
      Output(component_id=WORDCLOUD, component_property='src')],
     [Input(component_id=SELECTED_PRODUCTS, component_property='value'),
      Input(component_id=SELECTED_USERS, component_property='value'),
@@ -64,9 +66,10 @@ def update_graph(products_selected, users_selected, years_selected):
     fig1 = averageScoreFig(df)
     fig2 = stackBarchartFig(df)
     fig3 = horizontalBarChart(df)
+    fig4 = bulletChartFig(df)
     bytes = wordCloudChart(df)
 
-    return fig1, fig2, fig3, bytes
+    return fig1, fig2, fig3, fig4, bytes
 
 
 if __name__ == '__main__':

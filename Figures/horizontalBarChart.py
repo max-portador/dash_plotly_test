@@ -24,7 +24,6 @@ def horizontalBarChart(df):
                       bargap=0.5,
                       xaxis=dict(range=[0, maximal + 20], showgrid=False),
                       yaxis=dict(showgrid=False),
-                      margin_pad=10,
                       margin=dict(l=20, r=5, t=15, b=5))
 
     return fig
