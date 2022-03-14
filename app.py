@@ -3,6 +3,7 @@ import dash
 from dash import html
 from dash.dependencies import Input, Output
 import random
+from whitenoise import WhiteNoise
 
 from Figures.averageBarchart import averageScoreFig
 from Figures.bulletChart import bulletChartFig
@@ -16,8 +17,9 @@ from constants import SELECTED_YEARS, SELECTED_USERS, SELECTED_PRODUCTS, BARS_GR
 from helpers import apply_filter
 from components.Header.header import header
 
-app = dash.Dash()
-# app = dash.Dash(__name__)
+
+app = dash.Dash(__name__)
+
 # set css-file for our app
 app.head = [html.Link(rel='stylesheet', href='./static/style.css')]
 app.head = [html.Link(rel='stylesheet', href='./static/dropdown_redifine.css')]
@@ -72,6 +74,10 @@ def update_graph(products_selected, users_selected, years_selected):
 
     return fig1, fig2, fig3, fig4, img_like_bytes
 
+
+# для запуска wsgi-сервера
+server = app.server
+server.wsgi_app = WhiteNoise(server.wsgi_app, root='assets/')
 
 if __name__ == '__main__':
     app.run_server(debug=True)
