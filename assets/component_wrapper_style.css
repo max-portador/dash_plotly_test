@@ -1,6 +1,5 @@
 .component_wrapper{
     display: grid;
-    grid-template-rows: auto auto;
     background-color: white;
     border-radius: 10px;
     padding: 10px 15px;
@@ -19,7 +18,7 @@
 }
 
 .dropdown{
-    width: max-content  ;
+    width: max-content;
 }
 
 .reviews{
@@ -28,10 +27,13 @@
 
 .wordcloud{
     padding: 10px 5px;
-    height: min-content;
 }
 .barChartsWithSelector{
     display: grid;
     grid-template-rows: auto auto;
-    margin-top: -30px;
+    height: auto;
+}
+
+.bar_grouped{
+    height: auto;
 }

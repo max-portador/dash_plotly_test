@@ -26,3 +26,5 @@ six==1.16.0
 tenacity==8.0.1
 Werkzeug==2.0.3
 wordcloud==1.8.1
+
+PyFladesk~=1.1

@@ -16,7 +16,8 @@ from constants import SELECTED_YEARS, SELECTED_USERS, SELECTED_PRODUCTS, BARS_GR
 from helpers import apply_filter
 from components.Header.header import header
 
-app = dash.Dash(__name__)
+app = dash.Dash()
+# app = dash.Dash(__name__)
 # set css-file for our app
 app.head = [html.Link(rel='stylesheet', href='./static/style.css')]
 app.head = [html.Link(rel='stylesheet', href='./static/dropdown_redifine.css')]

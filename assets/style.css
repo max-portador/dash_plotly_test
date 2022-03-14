@@ -60,7 +60,7 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 20px;
-    height: calc(100vh - 80px - 50px);
+    height: calc(100vh - 80px - 100px);
 }
 
 .barcharts {
@@ -88,6 +88,15 @@ body {
     display: grid;
     justify-self: end;
     min-width: 50px;
+    margin-top: -30px;
+}
+
+#BARS {
+    display: grid;
+}
+
+#BARS_GROUPED {
+    display: grid;
 }
 
 #HORIZONTAL_BARS {
@@ -104,9 +113,3 @@ body {
 text.legendtitletext {
     font-weight: bold;
 }
-
-/*.cartesianlayer{*/
-/*    font-weight: bold;*/
-/*    font-family: "Times New Roman", system-ui;*/
-/*}*/
-

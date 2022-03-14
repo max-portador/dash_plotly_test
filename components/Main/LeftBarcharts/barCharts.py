@@ -28,6 +28,6 @@ def barCharts(unique_values):
 
     children = [
         componentWrapper(barChartsWithSelector, 'Average Scores'),
-        componentWrapper(stackBarchart, 'Scores')
+        componentWrapper(stackBarchart, 'Scores', ['bar_grouped'])
     ]
     return html.Div(className='barcharts', children=children)
